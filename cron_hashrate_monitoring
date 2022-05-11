@@ -1,0 +1,1 @@
+*/5 * * * * root python /hashrate_monitoring/hashrate_monitoring.py >> /home/user/log.txt
