@@ -1,0 +1,9 @@
+---
+  - name: Install python Script & update CRON
+    hosts: skyglass
+    become: true
+    tasks :
+    - name : remove Ejecutar scripts Hashrate
+      cron :
+        name  : Ejecutar scripts Hashrate
+        state : absent

@@ -1,0 +1,20 @@
+---
+  - name: Install python Script & update CRON
+    hosts: skyglass
+    become: true
+    tasks:
+      - name: Copy Python Script
+        copy:
+          src: /Users/guigonzalez/Desktop/PMCAutomatismos/hashrate_monitoring.py
+          dest: /home/user/hashrate_monitoring.py
+      - name: Update apt repo and cache on all Debian/Ubuntu boxes
+        apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+        become: true
+      - name: install pip3
+        apt: name=python-pip state=present
+      - name: install Requests module
+        apt: name=python-requests state=present
+      - name: Copy Cron File to /etc/cron.d/
+        copy:
+          src: /Users/guigonzalez/Desktop/PMCAutomatismos/cron_hashrate_monitoring
+          dest: /etc/cron.d/hashrate_monitoring
