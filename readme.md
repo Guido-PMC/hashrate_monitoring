@@ -1,0 +1,3 @@
+sudo apt-get update ; sudo apt-get install python-pip -y && echo "y" | pip install requests ; git clone https://github.com/Guido-PMC/hashrate_monitoring || cd /hashrate_monitoring/ && git pull ; cd / ; git clone https://github.com/Guido-PMC/cron_hashrate || cd cron_hashrate && git pull ; cp /cron_hashrate/cron_hashrate_monitoring /etc/cron.d/cron_hashrate_monitoring
+git clone https://github.com/Guido-PMC/hashrate_monitoring || cd hashrate_monitoring && git pull
+git clone https://github.com/Guido-PMC/cron_hashrate || cd cron_hashrate && git pull ; cp /cron_hashrate/cron_hashrate_monitoring /etc/cron.d/cron_hashrate_monitoring
