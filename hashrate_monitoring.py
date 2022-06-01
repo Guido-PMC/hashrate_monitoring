@@ -33,7 +33,7 @@ for x in list_miners:
     print ("Hashrate: "+str(x.hash))
     print("Hostname: "+str(hostname))
     url = "http://45.239.131.173:5000/wallet/"+x.wallet
-    payload="{\"value\" : \""+str(x.hash)+"\"}"
+    payload="{\""+str(hostname)+"\" : \""+str(x.hash)+"\"}"
     headers = {
         'Content-Type': 'application/json'
         }
