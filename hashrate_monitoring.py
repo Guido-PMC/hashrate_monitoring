@@ -24,11 +24,14 @@ with open('/hive-config/wallet.conf') as f:
             data = json.load(f2)
             list_miners.append(miner(i,line.split('"')[1].split(".")[0],line.split("_")[0],data["params"]["total_khs"]))
             i=i+1
+hostname_stream = os.popen("hostname")
+hostname = hostname_stream.read()
 for x in list_miners:
-    print ("Minero: "+str(x.id))
-    print (x.wallet)
-    print (x.miner)
-    print (x.hash)
+    print ("Minero_ID: "+str(x.id))
+    print ("Wallet: "+str(x.wallet))
+    print ("Minero: "+str(x.miner))
+    print ("Hashrate: "+str(x.hash))
+    print("Hostname: "+str(hostname))
     print("-------")
     #stream = os.popen("zabbix_sender -z 54.221.75.201 -s '"+str(x.wallet)+"' -k application.hash -o '"+str(x.hash)+"'")
     #output = stream.read()
