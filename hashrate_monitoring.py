@@ -32,9 +32,6 @@ for x in list_miners:
     print ("Minero: "+str(x.miner))
     print ("Hashrate: "+str(x.hash))
     print("Hostname: "+str(hostname))
-    print("-------")
-    #stream = os.popen("zabbix_sender -z 54.221.75.201 -s '"+str(x.wallet)+"' -k application.hash -o '"+str(x.hash)+"'")
-    #output = stream.read()
     url = "http://45.239.131.173:5000/wallet/"+x.wallet
     payload="{\"value\" : \""+str(x.hash)+"\"}"
     headers = {
@@ -44,7 +41,8 @@ for x in list_miners:
     response = requests.request("POST", url, headers=headers, data=payload)
     date = os.popen("date")
     output_date = date.read()
-    print(output_date)
-    print(response.text)
-    print(payload)
-    print(url)
+    print("Fecha: "+str(output_date))
+    print("URL a enviar data: "str(url))
+    print("Payload enviado al server: "str(payload))
+    print("Respuesta del server: "str(response.text))
+    print("-------")
